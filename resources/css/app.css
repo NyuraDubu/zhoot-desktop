@@ -6,6 +6,143 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Europa Grotesk SH', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* --------------------------------------------------
+   Europa Grotesk SH Font Faces
+   Place the licensed font files in public/fonts/europa/
+   Expected naming convention (adjust if your files differ):
+     EuropaGroteskSH-Light.woff2  (300)
+     EuropaGroteskSH-Regular.woff2 (400)
+     EuropaGroteskSH-Medium.woff2 (500)
+     EuropaGroteskSH-Bold.woff2   (700)
+-------------------------------------------------- */
+
+@font-face {
+    font-family: 'Europa Grotesk SH';
+    src: url('/fonts/europa/EuropaGroteskSH-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: light;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Europa Grotesk SH';
+    src: url('/fonts/europa/EuropaGroteskSH-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Europa Grotesk SH';
+    src: url('/fonts/europa/EuropaGroteskSH-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: medium;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Europa Grotesk SH';
+    src: url('/fonts/europa/EuropaGroteskSH-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: bold;
+    font-display: swap;
+}
+
+html { font-family: 'Europa Grotesk SH', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; }
+
+@layer utilities {
+    .font-europa {
+        font-family: 'Europa Grotesk SH', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+    .bg-radial-gold {
+        background: transparent radial-gradient(closest-side at 50% 50%, #FFC97865 0%, #FFC97800 100%) 0% 0% no-repeat padding-box;
+    }
+        .bg-radial-pink {
+            background: transparent radial-gradient(closest-side at 50% 50%, #FF71FD4D 0%, #FF71FD00 100%) 0% 0% no-repeat padding-box;
+        }
+        .bg-radial-blue {
+            background: transparent radial-gradient(closest-side at 50% 50%, #688BFF4D 0%, #688BFF00 100%) 0% 0% no-repeat padding-box;
+        }
+        .bg-radial-triple {
+            background:
+                radial-gradient(circle 240px at 30% 50%, #FFC97865 0%, #FFC97800 85%),
+                radial-gradient(circle 300px at 50% 48%, #FF71FD4D 0%, #FF71FD00 85%),
+                radial-gradient(circle 240px at 70% 50%, #688BFF4D 0%, #688BFF00 85%);
+        }
+}
+
+/* -----------------------
+     Carousel (infinite scroll)
+------------------------- */
+@keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.carousel-row {
+    display: flex;
+    width: max-content;
+    animation: carousel-scroll 40s linear infinite;
+    gap: 2.5rem; /* 40px spacing similar to gap-10 */
+}
+.carousel-row.reverse { animation-direction: reverse; }
+.carousel-row:hover { animation-play-state: paused; }
+
+.carousel-item {
+    width: 250px;   /* updated width */
+    height: 330px;  /* updated height */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;       /* show full image */
+}
+.carousel-item img {
+        width: 250px;   /* match requested size */
+        height: 330px;  /* match requested size */
+        object-fit: contain;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0.75rem;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 55px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.22), transparent 70%);
+    filter: blur(10px);
+    opacity: .5;
+    pointer-events: none;
+}
+.carousel-item:hover img { transform: scale(1.05); }
+
+@media (max-width: 640px) {
+            .carousel-item { width: 200px; height: 260px; }
+            .carousel-item img { width: 200px; height: 260px; }
+    .carousel-row { gap: 1.5rem; }
+    .carousel-item img { max-width: 75%; }
+}
+
+/* Triple radial background for hero section */
+.hero-gradient-bg {
+    background:
+        radial-gradient(circle 260px at 32% 44%, #FFC97865 0%, #FFC97800 82%),
+        radial-gradient(circle 340px at 50% 38%, #FF71FD4D 0%, #FF71FD00 82%),
+        radial-gradient(circle 260px at 68% 44%, #688BFF4D 0%, #688BFF00 82%);
+}
+
+@media (min-width: 1024px) {
+    .hero-gradient-bg {
+        background:
+            radial-gradient(circle 320px at 25% 30%, #FFC97865 0%, #FFC97800 84%),
+            radial-gradient(circle 320px at 50% 34%, #FF71FD4D 0%, #FF71FD00 84%),
+            radial-gradient(circle 320px at 75% 30%, #688BFF4D 0%, #688BFF00 84%);
+    }
 }
