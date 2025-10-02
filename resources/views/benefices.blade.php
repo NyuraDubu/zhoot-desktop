@@ -1,11 +1,11 @@
 <!-- Bénéfices Clés Section -->
-<section id="benefices" class="w-full py-24 bg-[#FAFAFA] reveal" data-reveal-fade>
-    <div class="max-w-6xl mx-auto px-4 md:px-8">
+<section id="benefices" class="w-full py-24 sm:py-28 bg-[#FAFAFA] reveal" data-reveal-fade>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="max-w-3xl mx-auto text-center reveal" style="--reveal-delay:40ms">
-            <h2 class="mt-6 font-europa font-bold text-[#354762] text-3xl md:text-5xl leading-tight tracking-tight">
+            <h2 class="mt-4 sm:mt-6 font-europa font-bold text-[#354762] text-2xl sm:text-3xl md:text-5xl leading-tight tracking-tight">
                 <span>Bénéfices clés</span>
             </h2>
-            <p class="mt-4 text-[#6F757C] font-europa font-medium text-[15px] md:text-[16px]">Convaincre rapidement avec des avantages clairs.</p>
+            <p class="mt-3 sm:mt-4 text-[#6F757C] font-europa font-medium text-sm sm:text-[15px] md:text-[16px]">Convaincre rapidement avec des avantages clairs.</p>
         </div>
 
         @php
@@ -26,15 +26,15 @@
             ];
         @endphp
 
-    <ul class="mt-14 space-y-7 max-w-4xl mx-auto text-left reveal-stagger-parent" data-benefits-list>
+        <ul class="mt-12 sm:mt-14 space-y-6 sm:space-y-7 max-w-4xl mx-auto text-left reveal-stagger-parent" data-benefits-list>
             @foreach($benefits as $idx => $b)
-                <li class="benefit-item reveal flex gap-5 items-start" style="--reveal-delay: {{ 120 + $idx * 80 }}ms">
+                <li class="benefit-item reveal flex gap-4 sm:gap-5 items-start" style="--reveal-delay: {{ 120 + $idx * 80 }}ms">
                     <div class="icon-wrapper relative flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFC978] via-[#FF71FD] to-[#688BFF] text-white shadow-sm flex items-center justify-center">
                         <div class="absolute inset-0 rounded-xl bg-white/0 group-hover:bg-white/5 transition"></div>
                         {!! $svgIcons[$b['icon']] !!}
                     </div>
                     <div class="leading-snug">
-                        <p class="font-europa font-semibold text-[#354762] text-[16px]">
+                        <p class="font-europa font-semibold text-[#354762] text-sm sm:text-[16px] leading-snug">
                             <span class="benefit-title bg-clip-text text-transparent bg-gradient-to-r from-[#354762] to-[#354762]">{{ $b['title'] }}</span>
                             <span class="font-normal text-[#6F757C]"> → {{ $b['desc'] }}</span>
                         </p>

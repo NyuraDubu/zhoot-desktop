@@ -1,6 +1,6 @@
 <!-- Mini Pricing Section -->
 <section id="pricing" class="w-full py-24 bg-[#FAFAFA] reveal" data-reveal-fade>
-    <div class="max-w-5xl mx-auto px-4 md:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
     <div class="max-w-2xl mx-auto text-center reveal" style="--reveal-delay:40ms">
             <h2 class="font-europa font-bold text-[#354762] text-3xl md:text-5xl leading-tight tracking-tight flex items-center justify-center gap-3">
                 <span>Packs de crédits simples</span>
@@ -22,8 +22,9 @@
         @endphp
 
         <!-- Table -->
-    <div class="mt-14 overflow-hidden rounded-2xl border border-[#E6E8EC] bg-white shadow-sm reveal" style="--reveal-delay:120ms">
-            <table class="w-full border-collapse font-europa text-left">
+    <!-- Desktop / larger table -->
+    <div class="mt-12 sm:mt-14 overflow-hidden rounded-2xl border border-[#E6E8EC] bg-white shadow-sm reveal hidden sm:block" style="--reveal-delay:120ms">
+        <table class="w-full border-collapse font-europa text-left">
                 <thead class="bg-[#F8F9FB] text-[#354762] text-[12px] md:text-[13px] uppercase tracking-wide font-semibold">
                     <tr>
                         <th class="py-3 pl-5 pr-4">Pack</th>
@@ -52,8 +53,30 @@
             </table>
         </div>
 
+        <!-- Mobile cards -->
+        <div class="mt-10 grid gap-4 sm:hidden" aria-label="Packs de crédits (mobile)">
+            @foreach($plans as $plan)
+                @php
+                    $unit = (is_numeric(str_replace('€','',$plan['price'])) && is_numeric(preg_replace('/\D/','',$plan['credits'] ?? '')))
+                        ? number_format(((float)str_replace('€','',$plan['price'])) / (int)preg_replace('/\D/','',$plan['credits']), 2, ',', ' ') . '€'
+                        : '—';
+                @endphp
+                <div class="rounded-xl border border-[#E6E8EC] bg-white p-4 shadow-sm flex flex-col gap-2 font-europa">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-[#354762] text-sm">{{ $plan['name'] }}</h3>
+                        <span class="text-[#354762] font-semibold text-sm">{{ $plan['price'] }}</span>
+                    </div>
+                    <p class="text-[11px] text-[#6F757C]">{{ $plan['ideal'] }}</p>
+                    <div class="flex items-center justify-between text-[12px] mt-1">
+                        <span class="font-medium text-[#354762]">{{ $plan['credits'] }}</span>
+                        <span class="text-[#6F757C]">{{ $unit }}/crédit</span>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
         <!-- CTA -->
-    <div class="mt-10 flex flex-col items-center gap-3 reveal" style="--reveal-delay:200ms">
+        <div class="mt-10 flex flex-col items-center gap-3 reveal" style="--reveal-delay:200ms">
             <a href="#signup" class="inline-flex items-center rounded-full px-8 py-3 font-bold text-white bg-[#BB3381] shadow hover:opacity-90 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-fuchsia-500 transition" style="font-size:16px;">Créer mon compte (3 gratuits)</a>
             <p class="text-[13px] text-[#6F757C] font-medium">Crédits utilisables à vie • Aucun renouvellement automatique</p>
         </div>

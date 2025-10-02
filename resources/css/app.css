@@ -58,6 +58,12 @@ html { font-family: 'Europa Grotesk SH', 'Instrument Sans', ui-sans-serif, syste
     .font-europa {
         font-family: 'Europa Grotesk SH', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
+    /* Clamp based responsive heading utilities */
+    .heading-hero { font-size: clamp(2.25rem, 7vw, 3.5rem); line-height: 1.05; }
+    .heading-section { font-size: clamp(1.75rem, 5.2vw, 2.75rem); line-height: 1.15; }
+    /* Safe area helpers */
+    .pt-safe { padding-top: calc(env(safe-area-inset-top) + 1rem); }
+    .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); }
     .bg-radial-gold {
         background: transparent radial-gradient(closest-side at 50% 50%, #FFC97865 0%, #FFC97800 100%) 0% 0% no-repeat padding-box;
     }

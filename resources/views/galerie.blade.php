@@ -1,32 +1,23 @@
 <!-- Galerie / Cas d'usage - Redesigned -->
-<section id="galerie" class="w-full py-28 bg-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 md:px-8">
+<section id="galerie" class="w-full py-24 sm:py-28 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <!-- Header -->
         <div class="text-center reveal" data-reveal-fade style="--reveal-delay:40ms">
-            <h2 class="font-europa font-bold text-[#354762] text-3xl md:text-5xl">Fonctionne pour tout type de produits</h2>
-            <p class="mt-5 text-[#6F757C] font-europa font-medium text-[15px] md:text-[17px]">Peu importe ce que vous vendez, Zhoot sublime vos photos en un visuel pro.</p>
+            <h2 class="font-europa font-bold text-[#354762] text-2xl sm:text-3xl md:text-5xl leading-tight">Fonctionne pour tout type de produits</h2>
+            <p class="mt-4 sm:mt-5 text-[#6F757C] font-europa font-medium text-sm sm:text-[15px] md:text-[17px] max-w-3xl mx-auto">Peu importe ce que vous vendez, Zhoot sublime vos photos en un visuel pro.</p>
         </div>
 
         @php
             $featured = [
-                ['before'=>'before1.jpg','after'=>'after1.jpg','cat'=>'Food','label'=>'Bowl protéiné','gain'=>'+37% CTR','desc'=>'Couleurs ravivées, contraste léger, bruit réduit'],
-                ['before'=>'before2.jpg','after'=>'after2.jpg','cat'=>'Skincare','label'=>'Sérum éclat','gain'=>'+24% clics','desc'=>'Lumière unifiée, reflets contrôlés'],
-                ['before'=>'before3.jpg','after'=>'after3.jpg','cat'=>'Mode','label'=>'Sneaker','gain'=>'+18% ajout panier','desc'=>'Fond nettoyé, texture semelle lisible'],
-                ['before'=>'before4.jpg','after'=>'after4.jpg','cat'=>'Tech','label'=>'Casque audio','gain'=>'+21% vues','desc'=>'Reflets tempérés, noirs densifiés'],
-            ];
-
-            $mini = [
-                ['img'=>'cap.png','title'=>'Accessoire'],
-                ['img'=>'hoodie.png','title'=>'Hoodie'],
-                ['img'=>'jeans.png','title'=>'Jeans'],
-                ['img'=>'cap2.png','title'=>'Cap 2'],
-                ['img'=>'before2.jpg','title'=>'Skincare'],
-                ['img'=>'after2.jpg','title'=>'Skincare+'],
+                ['before'=>'jeans.jpeg','after'=>'jeans-after.jpg','cat'=>'Textile','label'=>'Jeans délavé','gain'=>'+37% CTR','desc'=>'Texture du tissu mise en avant, couleurs rehaussées, fond neutre'],
+                ['before'=>'bibimbap.jpg','after'=>'bibimbap-after.jpg','cat'=>'Food','label'=>'Bibimbap coréen','gain'=>'+24% clics','desc'=>'Couleurs des ingrédients rehaussées, présentation appétissante'],
+                ['before'=>'clock.jpeg','after'=>'clock-after.jpg','cat'=>'Mode','label'=>'Montre élégante','gain'=>'+18% ajout panier','desc'=>'Fond épuré, couleurs du bracelet mises en avant, détails du cadran visibles'],
+                ['before'=>'casque.jpg','after'=>'casque-after.jpg','cat'=>'Tech','label'=>'Casque audio','gain'=>'+21% vues','desc'=>'Reflets adoucis, détails du design mis en valeur, rendu plus attractif'],
             ];
         @endphp
 
         <!-- Featured comparison sliders grid -->
-        <div class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4" id="galerie-featured">
+    <div class="mt-14 sm:mt-16 grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-4" id="galerie-featured">
             @foreach($featured as $k => $item)
                 @php $bExists = file_exists(public_path('images/'.$item['before'])); $aExists = file_exists(public_path('images/'.$item['after'])); @endphp
                 <div class="galerie-card group relative rounded-2xl border border-[#E6E8EC] bg-white shadow-sm hover:shadow-md transition overflow-hidden flex flex-col reveal" style="--reveal-delay: {{ 120 + $k*60 }}ms" data-cat="{{ strtolower($item['cat']) }}">
