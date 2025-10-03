@@ -49,7 +49,7 @@
         </div>
 
         <div class="mt-14 md:mt-16 pt-8 border-t border-slate-800 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <p class="text-[11px] sm:text-xs text-slate-500">&copy; {{ date('Y') }} Zhoot. Tous droits réservés. Développé par <span class="text-slate-400">quelqu'un</span>.</p>
+            <p class="text-[11px] sm:text-xs text-slate-500">&copy; {{ date('Y') }} Zhoot. Tous droits réservés.</p>
             <div class="flex items-center gap-4 sm:gap-5">
                 <a href="#" class="text-slate-400 hover:text-white transition" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM14.25 9c-2.485 0-4.5 2.015-4.5 4.5V21h4v-7.5a1.5 1.5 0 0 1 3 0V21h4v-7.5C20.75 11.015 18.735 9 16.25 9z"/></svg>

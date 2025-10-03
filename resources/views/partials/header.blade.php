@@ -10,7 +10,7 @@
             <nav class="hidden md:flex absolute inset-x-0 mx-auto h-full items-center justify-center pointer-events-none">
                 <ul class="flex gap-10 text-sm font-medium pointer-events-auto">
                     <li><a href="#pricing" class="text-slate-600 hover:text-slate-900 transition">Pricing</a></li>
-                    <li><a href="#how" class="text-slate-600 hover:text-slate-900 transition">Comment ça marche ?</a></li>
+                    <li><a href="#fonctionnement" class="text-slate-600 hover:text-slate-900 transition">Comment ça marche ?</a></li>
                     <li><a href="#contact" class="text-slate-600 hover:text-slate-900 transition">Contact</a></li>
                 </ul>
             </nav>
